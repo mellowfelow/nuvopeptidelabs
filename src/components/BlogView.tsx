@@ -38,7 +38,7 @@ export default function BlogView({ selectedPostId }: BlogViewProps) {
         </div>
       ) : (
         <a
-          href="#/blog"
+          href="/blog"
           className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-slate-900 transition cursor-pointer"
         >
           <ArrowLeft className="h-4 w-4" /> Back to Journal Catalog
@@ -136,7 +136,7 @@ export default function BlogView({ selectedPostId }: BlogViewProps) {
           {siteConfig.blog.map((post) => (
             <a
               key={post.id}
-              href={`#/blog/${post.slug || post.id}`}
+              href={`/blog/${post.slug || post.id}`}
               className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between hover:border-teal-500 hover:shadow-md transition-all duration-300 cursor-pointer group"
             >
               {/* Cover Photo */}

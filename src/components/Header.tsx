@@ -46,7 +46,7 @@ export default function Header({ activePage, setActivePage, cart, setIsCartOpen 
         <div className="flex h-16 items-center justify-between">
           {/* Brand Logo & Name */}
           <a 
-            href="#/"
+            href="/"
             className="flex items-center gap-2 group cursor-pointer"
           >
             <div className="relative flex h-10 w-10 items-center justify-center rounded-lg bg-teal-600 text-white shadow-sm transition-transform group-hover:scale-105">
@@ -68,7 +68,7 @@ export default function Header({ activePage, setActivePage, cart, setIsCartOpen 
             {navigationItems.map((item) => (
               <a
                 key={item.page}
-                href={item.page === "home" ? "#/" : `#/${item.page}`}
+                href={item.page === "home" ? "/" : `/${item.page}`}
                 className={`font-sans text-sm font-medium transition-colors ${
                   activePage === item.page
                     ? "text-teal-600 border-b-2 border-teal-600 py-1"
@@ -130,7 +130,7 @@ export default function Header({ activePage, setActivePage, cart, setIsCartOpen 
           {navigationItems.map((item) => (
             <a
               key={item.page}
-              href={item.page === "home" ? "#/" : `#/${item.page}`}
+              href={item.page === "home" ? "/" : `/${item.page}`}
               onClick={() => setIsMobileMenuOpen(false)}
               className={`block w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-all ${
                 activePage === item.page
@@ -143,14 +143,14 @@ export default function Header({ activePage, setActivePage, cart, setIsCartOpen 
           ))}
           <div className="border-t border-slate-100 pt-3 mt-3 space-y-2">
             <a
-              href="#/faq"
+              href="/faq"
               onClick={() => setIsMobileMenuOpen(false)}
               className="block w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-500 hover:text-slate-800"
             >
               FAQ & Support
             </a>
             <a
-              href="#/shipping"
+              href="/shipping"
               onClick={() => setIsMobileMenuOpen(false)}
               className="block w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-500 hover:text-slate-800"
             >

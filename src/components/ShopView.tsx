@@ -111,7 +111,7 @@ export default function ShopView({
             
             <div className="flex flex-col gap-1 max-h-[360px] overflow-y-auto pr-2 space-y-0.5">
               <a
-                href="#/shop"
+                href="/shop"
                 className={`text-left px-2.5 py-1.5 rounded text-xs transition-colors ${
                   !selectedCategory || selectedCategory === "All Categories"
                     ? "bg-teal-50 text-teal-700 font-semibold border-l-2 border-teal-600"
@@ -126,7 +126,7 @@ export default function ShopView({
                 return (
                   <a
                     key={cat}
-                    href={`#/shop?category=${encodeURIComponent(cat)}`}
+                    href={`/shop?category=${encodeURIComponent(cat)}`}
                     className={`text-left px-2.5 py-1.5 rounded text-xs transition-colors flex justify-between items-center ${
                       selectedCategory === cat
                         ? "bg-teal-50 text-teal-700 font-semibold border-l-2 border-teal-600"
@@ -180,7 +180,7 @@ export default function ShopView({
                   className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between hover:shadow-md transition-all duration-300"
                 >
                   {/* Product Image Container: Contain, White BG, 4:3, wraps in Link */}
-                  <a href={`#/product/${product.id}`} className="block group">
+                  <a href={`/product/${product.id}`} className="block group">
                     <div className="bg-[#fff] relative flex items-center justify-center p-4 border-b border-slate-100" style={{ aspectRatio: "4/3" }}>
                       <img 
                         src={product.image} 
@@ -198,12 +198,12 @@ export default function ShopView({
                   <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
                     <div className="space-y-1">
                       <a 
-                        href={`#/shop?category=${encodeURIComponent(product.category)}`}
+                        href={`/shop?category=${encodeURIComponent(product.category)}`}
                         className="block text-[10px] font-mono text-teal-600 hover:underline uppercase tracking-widest font-semibold"
                       >
                         {product.category}
                       </a>
-                      <a href={`#/product/${product.id}`} className="block hover:text-teal-600 transition-colors">
+                      <a href={`/product/${product.id}`} className="block hover:text-teal-600 transition-colors">
                         <h3 className="text-sm font-bold text-slate-950 font-sans line-clamp-1">
                           {product.name}
                         </h3>

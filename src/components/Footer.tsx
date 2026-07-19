@@ -22,7 +22,7 @@ export default function Footer({ setActivePage }: FooterProps) {
           {/* Logo, Description & Essential Entity Sentence */}
           <div className="space-y-4 md:col-span-1">
             <a 
-              href="#/"
+              href="/"
               className="flex items-center gap-2 cursor-pointer"
             >
               <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-teal-600 text-white shadow-sm">
@@ -50,27 +50,27 @@ export default function Footer({ setActivePage }: FooterProps) {
             </h3>
             <ul className="space-y-2 text-xs">
               <li>
-                <a href="#/shop" className="hover:text-teal-400 transition-colors">
+                <a href="/shop" className="hover:text-teal-400 transition-colors">
                   Product Catalog
                 </a>
               </li>
               <li>
-                <a href="#/blog" className="hover:text-teal-400 transition-colors">
+                <a href="/blog" className="hover:text-teal-400 transition-colors">
                   Peptide Quality & Support Blog
                 </a>
               </li>
               <li>
-                <a href="#/about" className="hover:text-teal-400 transition-colors">
+                <a href="/about" className="hover:text-teal-400 transition-colors">
                   About Our Team
                 </a>
               </li>
               <li>
-                <a href="#/wholesale" className="hover:text-teal-400 transition-colors">
+                <a href="/wholesale" className="hover:text-teal-400 transition-colors">
                   Wholesale Peptides
                 </a>
               </li>
               <li>
-                <a href="#/faq" className="hover:text-teal-400 transition-colors">
+                <a href="/faq" className="hover:text-teal-400 transition-colors">
                   General Support FAQ
                 </a>
               </li>
@@ -84,22 +84,22 @@ export default function Footer({ setActivePage }: FooterProps) {
             </h3>
             <ul className="space-y-2 text-xs">
               <li>
-                <a href="#/shipping" className="hover:text-teal-400 transition-colors">
+                <a href="/shipping" className="hover:text-teal-400 transition-colors">
                   Discreet Shipping Policy
                 </a>
               </li>
               <li>
-                <a href="#/refund" className="hover:text-teal-400 transition-colors">
+                <a href="/refund" className="hover:text-teal-400 transition-colors">
                   Refund Policy
                 </a>
               </li>
               <li>
-                <a href="#/privacy" className="hover:text-teal-400 transition-colors">
+                <a href="/privacy" className="hover:text-teal-400 transition-colors">
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="#/terms" className="hover:text-teal-400 transition-colors">
+                <a href="/terms" className="hover:text-teal-400 transition-colors">
                   Terms of Use
                 </a>
               </li>

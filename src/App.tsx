@@ -31,28 +31,42 @@ export default function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
-  // Parse hash URL dynamically
+  // Setup custom routing listener for flat paths (e.g. /shop, /product/retatrutide)
   useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash || "#/";
+    // Helper to dispatch custom events when pushState or replaceState are called
+    const patchHistory = (type: "pushState" | "replaceState") => {
+      const orig = window.history[type];
+      return function (this: any, ...args: any[]) {
+        const result = orig.apply(this, args);
+        const event = new Event(type.toLowerCase());
+        window.dispatchEvent(event);
+        return result;
+      };
+    };
+
+    window.history.pushState = patchHistory("pushState");
+    window.history.replaceState = patchHistory("replaceState");
+
+    const handleLocationChange = () => {
+      const pathAndQuery = window.location.pathname;
+      const search = window.location.search;
       
-      // Remove leading #/
-      const pathAndQuery = hash.replace(/^#\/?/, "");
-      const [path, queryString] = pathAndQuery.split("?");
-      
-      const queryParams = new URLSearchParams(queryString || "");
+      const queryParams = new URLSearchParams(search || "");
       const categoryParam = queryParams.get("category");
 
       // Reset specific detail states
       setSelectedProductId(null);
       setSelectedBlogPostId(null);
 
-      if (path.startsWith("product/")) {
-        const productId = path.replace("product/", "");
+      // Clean path: remove starting and trailing slashes
+      const cleanPath = pathAndQuery.replace(/^\/+/, "").replace(/\/+$/, "");
+
+      if (cleanPath.startsWith("product/")) {
+        const productId = cleanPath.replace("product/", "");
         setSelectedProductId(productId);
         setActivePage("shop");
-      } else if (path.startsWith("blog/")) {
-        const blogId = path.replace("blog/", "");
+      } else if (cleanPath.startsWith("blog/")) {
+        const blogId = cleanPath.replace("blog/", "");
         setSelectedBlogPostId(blogId);
         setActivePage("blog");
       } else {
@@ -69,7 +83,8 @@ export default function App() {
           "privacy",
           "terms",
         ];
-        const matchedPage = pages.find((p) => p === path) || "home";
+        // If empty path, it's home
+        const matchedPage = pages.find((p) => p === cleanPath) || "home";
         setActivePage(matchedPage);
 
         if (matchedPage === "shop") {
@@ -79,10 +94,35 @@ export default function App() {
     };
 
     // Parse on load
-    handleHashChange();
+    handleLocationChange();
 
-    window.addEventListener("hashchange", handleHashChange);
-    return () => window.removeEventListener("hashchange", handleHashChange);
+    // Intercept all internal relative link clicks globally to make them client-side pushState!
+    const handleGlobalLinkClick = (e: MouseEvent) => {
+      const target = (e.target as HTMLElement).closest("a");
+      if (!target) return;
+
+      const href = target.getAttribute("href");
+      if (!href) return;
+
+      // Only handle internal relative paths starting with / (excluding external, hash-only, mailto, tel etc)
+      if (href.startsWith("/") && !href.startsWith("//") && target.target !== "_blank") {
+        e.preventDefault();
+        window.history.pushState(null, "", href);
+        window.scrollTo({ top: 0 });
+      }
+    };
+
+    window.addEventListener("popstate", handleLocationChange);
+    window.addEventListener("pushstate", handleLocationChange);
+    window.addEventListener("replacestate", handleLocationChange);
+    document.addEventListener("click", handleGlobalLinkClick, true);
+
+    return () => {
+      window.removeEventListener("popstate", handleLocationChange);
+      window.removeEventListener("pushstate", handleLocationChange);
+      window.removeEventListener("replacestate", handleLocationChange);
+      document.removeEventListener("click", handleGlobalLinkClick, true);
+    };
   }, []);
 
   // Load cart from LocalStorage on mount

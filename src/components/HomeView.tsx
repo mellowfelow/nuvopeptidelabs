@@ -64,14 +64,14 @@ export default function HomeView({ setActivePage, setSelectedCategory, onAddToCa
 
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
               <a
-                href="#/shop"
+                href="/shop"
                 className="bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold py-3.5 px-8 rounded-lg transition shadow-md hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>Shop Our Peptides</span>
                 <ArrowRight className="h-4 w-4" />
               </a>
               <a
-                href="#/wholesale"
+                href="/wholesale"
                 className="bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white text-xs font-bold py-3.5 px-8 rounded-lg border border-slate-700 transition flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>Wholesale Peptides</span>
@@ -171,7 +171,7 @@ export default function HomeView({ setActivePage, setSelectedCategory, onAddToCa
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <a 
-            href={`#/shop?category=${encodeURIComponent("Weight Loss Peptides")}`}
+            href={`/shop?category=${encodeURIComponent("Weight Loss Peptides")}`}
             className="group bg-white p-6 rounded-xl border border-slate-200 hover:border-teal-500 hover:shadow-md transition-all duration-300 relative overflow-hidden"
           >
             <div className="absolute right-0 bottom-0 h-16 w-16 bg-slate-50 rounded-tl-full flex items-end justify-end p-2 group-hover:bg-teal-50 transition-colors">
@@ -185,7 +185,7 @@ export default function HomeView({ setActivePage, setSelectedCategory, onAddToCa
           </a>
 
           <a 
-            href={`#/shop?category=${encodeURIComponent("Recovery Peptides")}`}
+            href={`/shop?category=${encodeURIComponent("Recovery Peptides")}`}
             className="group bg-white p-6 rounded-xl border border-slate-200 hover:border-teal-500 hover:shadow-md transition-all duration-300 relative overflow-hidden"
           >
             <div className="absolute right-0 bottom-0 h-16 w-16 bg-slate-50 rounded-tl-full flex items-end justify-end p-2 group-hover:bg-teal-50 transition-colors">
@@ -199,7 +199,7 @@ export default function HomeView({ setActivePage, setSelectedCategory, onAddToCa
           </a>
 
           <a 
-            href={`#/shop?category=${encodeURIComponent("Injectable Blends & Combinations")}`}
+            href={`/shop?category=${encodeURIComponent("Injectable Blends & Combinations")}`}
             className="group bg-white p-6 rounded-xl border border-slate-200 hover:border-teal-500 hover:shadow-md transition-all duration-300 relative overflow-hidden"
           >
             <div className="absolute right-0 bottom-0 h-16 w-16 bg-slate-50 rounded-tl-full flex items-end justify-end p-2 group-hover:bg-teal-50 transition-colors">
@@ -215,7 +215,7 @@ export default function HomeView({ setActivePage, setSelectedCategory, onAddToCa
 
         <div className="text-center pt-2">
           <a
-            href="#/shop"
+            href="/shop"
             className="inline-flex items-center gap-1.5 text-xs font-bold text-teal-600 hover:text-teal-700 hover:underline cursor-pointer"
           >
             <span>View all peptide categories</span>
@@ -236,7 +236,7 @@ export default function HomeView({ setActivePage, setSelectedCategory, onAddToCa
             </p>
           </div>
           <a
-            href="#/shop"
+            href="/shop"
             className="text-xs font-bold text-teal-600 hover:text-teal-700 inline-flex items-center gap-1 cursor-pointer"
           >
             Browse Full Catalog <ChevronRight className="h-4 w-4" />
@@ -250,7 +250,7 @@ export default function HomeView({ setActivePage, setSelectedCategory, onAddToCa
               className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between hover:shadow-md transition-all duration-300"
             >
               {/* Product Photo Container conforming to design standard: white background, aspect-ratio:4/3, contain */}
-              <a href={`#/product/${product.id}`} className="block group">
+              <a href={`/product/${product.id}`} className="block group">
                 <div className="bg-[#fff] relative flex items-center justify-center p-4 border-b border-slate-100" style={{ aspectRatio: "4/3" }}>
                   <img 
                     src={product.image} 
@@ -271,12 +271,12 @@ export default function HomeView({ setActivePage, setSelectedCategory, onAddToCa
               <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
                 <div className="space-y-1">
                   <a
-                    href={`#/shop?category=${encodeURIComponent(product.category)}`}
+                    href={`/shop?category=${encodeURIComponent(product.category)}`}
                     className="block text-[10px] font-mono text-teal-600 hover:underline uppercase tracking-widest font-semibold"
                   >
                     {product.category}
                   </a>
-                  <a href={`#/product/${product.id}`} className="block hover:text-teal-600 transition-colors">
+                  <a href={`/product/${product.id}`} className="block hover:text-teal-600 transition-colors">
                     <h3 className="text-sm font-bold text-slate-950 font-sans line-clamp-1">
                       {product.name}
                     </h3>
@@ -329,7 +329,7 @@ export default function HomeView({ setActivePage, setSelectedCategory, onAddToCa
 
             <div className="pt-2">
               <a
-                href="#/about"
+                href="/about"
                 className="text-xs font-bold text-teal-600 hover:text-teal-700 hover:underline inline-flex items-center gap-1.5 cursor-pointer"
               >
                 <span>About Our Team</span> <ChevronRight className="h-4 w-4" />

@@ -24,7 +24,7 @@ export default function ProductDetailView({ product, onAddToCart }: ProductDetai
       {/* Back button */}
       <div>
         <a
-          href="#/shop"
+          href="/shop"
           className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-slate-900 transition"
         >
           <ArrowLeft className="h-4 w-4" /> Back to Peptide Catalog
@@ -52,7 +52,7 @@ export default function ProductDetailView({ product, onAddToCart }: ProductDetai
           <div className="space-y-4">
             <div className="space-y-1">
               <a
-                href={`#/shop?category=${encodeURIComponent(product.category)}`}
+                href={`/shop?category=${encodeURIComponent(product.category)}`}
                 className="text-[10px] font-mono text-teal-600 hover:underline uppercase tracking-widest font-bold"
               >
                 {product.category}
