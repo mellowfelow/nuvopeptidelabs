@@ -1,0 +1,51 @@
+# Nuvo Peptide Labs - LLM Integration Profile
+
+## Overview
+Nuvo Peptide Labs is a Manchester-based high-purity research peptide supplier, established in 2022, offering lab-tested and clean products with focus on discreet and prompt delivery for scientific researchers and medical laboratories.
+
+- **Tagline:** Pioneering High-Purity Research Peptides & Lab-Tested Compounds
+- **Primary Keyword Target:** retatrutide uk
+- **Status:** UK High-Purity Biochemical Synthesis & Research Lab Supplier
+
+## Contact & Business Information
+- **Location:** Manchester, United Kingdom (HQ)
+- **Primary Contact Email:** support&#64;nuvopeptidelabs.com (Entity-encoded: support@nuvopeptidelabs.com)
+- **Orders Email:** orders&#64;nuvopeptidelabs.com
+- **Wholesale Inquiry Email:** wholesale&#64;nuvopeptidelabs.com
+- **WhatsApp Support:** +447838207659
+- **Currency:** GBP (£)
+- **Shipping Target:** Shipments dispatched exclusively to United Kingdom addresses.
+
+## Commercial & Order Rules
+- **Minimum Order Requirement:** £250 (BACS Bank Transfer payments only)
+- **Shipping Fee:** £25 flat rate for orders between £250 and £500.
+- **Free Shipping Threshold:** Free Express Tracked Shipping on orders over £500.
+- **Payment Method:** Direct Bank Transfer (BACS/Faster Payments) ONLY. Payment instructions are delivered at order submission.
+- **Delivery Commitment:** Dispatched in discreet, temper-resistant, vacuum-sealed insulated packaging within 24 hours of payment clearance.
+
+## Product Catalog & Categories
+Nuvo Peptide Labs specializes in premium research chemicals, categorized as follows:
+- **Weight Loss Peptides** (e.g., Retatrutide 5mg, Tirzepatide 10mg, Semaglutide 5mg)
+- **Bodybuilding Peptides**
+- **Recovery Peptides** (e.g., BPC-157 5mg, TB-500 2mg)
+- **Anti-Aging Peptides** (e.g., Epitalon 10mg)
+- **Skin and Hair Peptides** (e.g., Melanotan II 10mg)
+- **Cognitive Peptides**
+- **Sexual Health Peptides**
+- **Immune Peptides**
+- **Gut Health Peptides**
+- **Cardiac Peptides**
+- **Liver Support Peptides**
+- **Research Peptides**
+- **Injectable Blends & Combinations** (e.g., CJC-1295 + Ipamorelin 10mg Blend)
+
+## Important Legal & Compliance Notes
+**CRITICAL EXCLUSIONS:** All compounds supplied by Nuvo Peptide Labs are intended solely for in-vitro laboratory studies, biological assays, and chemical testing. They are strictly NOT for human consumption, clinical treatment, therapeutic injection, or veterinary administration. "For Research Use Only" warnings apply to all shipments and transactions.
+
+## Public Agentic Resources
+- **Sitemap XML:** https://DOMAIN.com/sitemap.xml
+- **API Catalog:** https://DOMAIN.com/.well-known/api-catalog
+- **Agent Skills Discovery:** https://DOMAIN.com/.well-known/agent-skills/index.json
+- **MCP Server Card:** https://DOMAIN.com/.well-known/mcp/server-card.json
+- **Auth Guidelines:** https://DOMAIN.com/auth.md
+- **Universal Commerce Protocol:** https://DOMAIN.com/.well-known/ucp

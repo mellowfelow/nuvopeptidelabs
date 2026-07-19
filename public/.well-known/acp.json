@@ -1,0 +1,24 @@
+{
+  "protocol": {
+    "name": "acp",
+    "version": "0.1.0"
+  },
+  "name": "Nuvo Peptide Labs",
+  "description": "High-purity lab-tested research peptides and biochemical reagents for UK laboratories.",
+  "api_base_url": "https://DOMAIN.com",
+  "homepage": "https://DOMAIN.com",
+  "transports": ["https"],
+  "capabilities": {
+    "services": ["product-catalog", "blog", "faq"],
+    "ordering": "human-assisted",
+    "payment_methods": ["bank-transfer"],
+    "currency": "GBP"
+  },
+  "contact": {
+    "email": "support@nuvopeptidelabs.com"
+  },
+  "legal": {
+    "age_restriction": "18+",
+    "region": "UK"
+  }
+}

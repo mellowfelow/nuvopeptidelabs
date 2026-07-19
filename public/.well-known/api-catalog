@@ -1,0 +1,16 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://DOMAIN.com/",
+      "https://www.iana.org/assignments/link-relations/service-doc": [
+        { "href": "https://DOMAIN.com/faq" }
+      ],
+      "title": "Nuvo Peptide Labs — Pioneering High-Purity Research Peptides & Lab-Tested Compounds"
+    },
+    {
+      "anchor": "https://DOMAIN.com/shop",
+      "type": "text/html",
+      "title": "Nuvo Peptide Labs Catalog"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://agent-skills.org/draft-01/schema.json",
+  "skills": [
+    {
+      "name": "browse-products",
+      "type": "navigation",
+      "description": "View and filter high-purity research peptides including Retatrutide, Tirzepatide, and BPC-157.",
+      "url": "https://DOMAIN.com/shop",
+      "sha256": "8f86f78082ecb273752e5b8a53609fc22a9009aa2a98f1f7d4b4a19c629f8f23"
+    },
+    {
+      "name": "order-inquiry",
+      "type": "checkout-form",
+      "description": "Fill out purchase inquiry forms for bank-transfer ordering with minimum threshold of £250.",
+      "url": "https://DOMAIN.com/shop",
+      "sha256": "2a9f4c39de989cb2320dfbe51996b2e118991a0398f6d729a888c3a19b02aef1"
+    },
+    {
+      "name": "wholesale-inquiry",
+      "type": "lead-generation",
+      "description": "Inquire about custom synthesis, bulk discount peptide purchases, and university laboratory support.",
+      "url": "https://DOMAIN.com/wholesale",
+      "sha256": "4b9f39029da8c9cb2320dfbe51996b2e118991a0398f6d729a888c3a19b02bef2"
+    },
+    {
+      "name": "view-lab-testing",
+      "type": "information",
+      "description": "Read scientific articles and guides regarding peptide purity verification via HPLC and MS analytics.",
+      "url": "https://DOMAIN.com/blog",
+      "sha256": "a39fbc8012da8c9cb2320dfbe51996b2e118991a0398f6d729a888c3a19b02cef3"
+    },
+    {
+      "name": "customer-support-faq",
+      "type": "faq",
+      "description": "Consult FAQs on storage, reconstitution, £250 UK delivery, bank transfer methods, and Research Use Only bounds.",
+      "url": "https://DOMAIN.com/faq",
+      "sha256": "d9817f8082ecb273752e5b8a53609fc22a9009aa2a98f1f7d4b4a19c629f8f41"
+    }
+  ]
+}

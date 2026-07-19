@@ -1,0 +1,9 @@
+{
+  "resource": "https://DOMAIN.com",
+  "resource_name": "Nuvo Peptide Labs Public Catalog",
+  "authorization_servers": [],
+  "scopes_supported": [],
+  "bearer_methods_supported": [],
+  "resource_documentation": "https://DOMAIN.com/auth.md",
+  "note": "All resources on DOMAIN.com are publicly accessible. No OAuth tokens are required."
+}

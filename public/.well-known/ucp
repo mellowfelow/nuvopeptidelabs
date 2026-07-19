@@ -1,0 +1,27 @@
+{
+  "ucp": "1.0",
+  "protocol_version": "1.0",
+  "spec": "https://ucp.dev/specification/overview/",
+  "site": "https://DOMAIN.com",
+  "name": "Nuvo Peptide Labs",
+  "description": "High-purity lab-tested research peptides and biochemical reagents for UK laboratories.",
+  "services": [
+    {
+      "id": "product-catalog",
+      "type": "catalog",
+      "url": "https://DOMAIN.com/shop",
+      "description": "Full product catalog"
+    }
+  ],
+  "capabilities": [
+    "browse",
+    "inquiry",
+    "content"
+  ],
+  "endpoints": {
+    "catalog": "https://DOMAIN.com/shop",
+    "contact": "https://DOMAIN.com/contact",
+    "llms_txt": "https://DOMAIN.com/llms.txt"
+  },
+  "currency": "GBP"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Nuvo Peptide Labs",
+  "description": "High-purity lab-tested research peptide store based in Manchester, UK. Specializing in HPLC-verified compounds like Retatrutide.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

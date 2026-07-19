@@ -1,0 +1,21 @@
+{
+  "issuer": "https://DOMAIN.com",
+  "authorization_endpoint": null,
+  "token_endpoint": null,
+  "jwks_uri": null,
+  "grant_types_supported": [],
+  "response_types_supported": [],
+  "scopes_supported": [],
+  "note": "Nuvo Peptide Labs has no protected APIs. All resources are publicly accessible.",
+  "public_resources": [
+    "https://DOMAIN.com/shop",
+    "https://DOMAIN.com/llms.txt",
+    "https://DOMAIN.com/.well-known/api-catalog"
+  ],
+  "agent_auth": {
+    "register_uri": null,
+    "identity_types_supported": ["none"],
+    "credential_types_supported": ["none"],
+    "notes": "No registration required. All content is publicly accessible to agents."
+  }
+}

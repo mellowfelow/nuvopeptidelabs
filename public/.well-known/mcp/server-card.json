@@ -1,0 +1,32 @@
+{
+  "mcpCardVersion": "1.0.0",
+  "serverInfo": {
+    "name": "Nuvo Peptide Labs Static Discovery Server",
+    "version": "1.0.0",
+    "description": "Static declaration of catalog search and research information schemas for Nuvo Peptide Labs",
+    "homepage": "https://DOMAIN.com",
+    "contact": {
+      "email": "support@nuvopeptidelabs.com",
+      "phone": "+447838207659"
+    }
+  },
+  "transports": [
+    {
+      "type": "static-discovery",
+      "notes": "No dynamic connection transport is running. Static pages represent complete read-only agent boundaries."
+    }
+  ],
+  "capabilities": {
+    "resources": [
+      { "uri": "https://DOMAIN.com/shop", "mimeType": "text/html", "description": "Nuvo Peptide Labs Active Chemical Catalog" },
+      { "uri": "https://DOMAIN.com/wholesale", "mimeType": "text/html", "description": "Wholesale Bulk Synthesis Form" },
+      { "uri": "https://DOMAIN.com/blog", "mimeType": "text/html", "description": "HPLC/MS Testing Documentation and Peptide Guides" },
+      { "uri": "https://DOMAIN.com/llms.txt", "mimeType": "text/plain", "description": "Structured LLM Overview File" }
+    ]
+  },
+  "legal": {
+    "age_restriction": "18+",
+    "product_type": "Research Chemicals / Lab Reagents",
+    "compliance_statement": "All materials sold are strictly for research and laboratory evaluation. Not for veterinary, clinical, or human therapeutic use. Purchase requires acknowledgement of terms."
+  }
+}
