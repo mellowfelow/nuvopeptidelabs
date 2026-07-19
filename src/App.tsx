@@ -20,13 +20,70 @@ import ContactView from "./components/ContactView";
 import FAQView from "./components/FAQView";
 import WholesaleView from "./components/WholesaleView";
 import LegalView from "./components/LegalView";
+import ProductDetailView from "./components/ProductDetailView";
 
 export default function App() {
   const [activePage, setActivePage] = useState<ActivePage>("home");
   const [selectedCategory, setSelectedCategory] = useState<string>("All Categories");
+  const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
+  const [selectedBlogPostId, setSelectedBlogPostId] = useState<string | null>(null);
   const [cart, setCart] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
+
+  // Parse hash URL dynamically
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash || "#/";
+      
+      // Remove leading #/
+      const pathAndQuery = hash.replace(/^#\/?/, "");
+      const [path, queryString] = pathAndQuery.split("?");
+      
+      const queryParams = new URLSearchParams(queryString || "");
+      const categoryParam = queryParams.get("category");
+
+      // Reset specific detail states
+      setSelectedProductId(null);
+      setSelectedBlogPostId(null);
+
+      if (path.startsWith("product/")) {
+        const productId = path.replace("product/", "");
+        setSelectedProductId(productId);
+        setActivePage("shop");
+      } else if (path.startsWith("blog/")) {
+        const blogId = path.replace("blog/", "");
+        setSelectedBlogPostId(blogId);
+        setActivePage("blog");
+      } else {
+        const pages: ActivePage[] = [
+          "home",
+          "shop",
+          "blog",
+          "about",
+          "contact",
+          "faq",
+          "wholesale",
+          "shipping",
+          "refund",
+          "privacy",
+          "terms",
+        ];
+        const matchedPage = pages.find((p) => p === path) || "home";
+        setActivePage(matchedPage);
+
+        if (matchedPage === "shop") {
+          setSelectedCategory(categoryParam || "All Categories");
+        }
+      }
+    };
+
+    // Parse on load
+    handleHashChange();
+
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
 
   // Load cart from LocalStorage on mount
   useEffect(() => {
@@ -96,6 +153,13 @@ export default function App() {
 
   // Dynamic router
   const renderActiveView = () => {
+    if (selectedProductId) {
+      const prod = siteConfig.products.find((p) => p.id === selectedProductId);
+      if (prod) {
+        return <ProductDetailView product={prod} onAddToCart={handleAddToCart} />;
+      }
+    }
+
     switch (activePage) {
       case "shop":
         return (
@@ -106,7 +170,7 @@ export default function App() {
           />
         );
       case "blog":
-        return <BlogView />;
+        return <BlogView selectedPostId={selectedBlogPostId || undefined} />;
       case "about":
         return <AboutView />;
       case "contact":
@@ -132,6 +196,8 @@ export default function App() {
     }
   };
 
+  const transitionKey = activePage + (selectedProductId || "") + (selectedBlogPostId || "");
+
   return (
     <div id="applet-container" className="flex flex-col min-h-screen bg-[#f8fafc] text-[#0f172a] select-none selection:bg-teal-100 selection:text-teal-900">
       
@@ -147,7 +213,7 @@ export default function App() {
       <main className="flex-grow">
         <AnimatePresence mode="wait">
           <motion.div
-            key={activePage}
+            key={transitionKey}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}

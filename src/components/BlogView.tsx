@@ -1,20 +1,19 @@
-import React, { useState } from "react";
-import { ChevronRight, Calendar, User, Clock, ArrowLeft, Beaker, ShieldCheck } from "lucide-react";
+import React from "react";
+import { ChevronRight, Calendar, User, Clock, ArrowLeft, Beaker } from "lucide-react";
 import { siteConfig } from "../site.config";
 import { BlogPost } from "../types";
 
-export default function BlogView() {
-  const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
+interface BlogViewProps {
+  selectedPostId?: string;
+}
 
-  const handlePostClick = (post: BlogPost) => {
-    setSelectedPost(post);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  const handleBackToList = () => {
-    setSelectedPost(null);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+export default function BlogView({ selectedPostId }: BlogViewProps) {
+  // Derive the selected post from the selectedPostId prop
+  const selectedPost = selectedPostId
+    ? (siteConfig.blog.find(
+        (post) => post.id === selectedPostId || post.slug === selectedPostId
+      ) || null)
+    : null;
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 space-y-8 animate-fade-in">
@@ -38,12 +37,12 @@ export default function BlogView() {
           </div>
         </div>
       ) : (
-        <button
-          onClick={handleBackToList}
-          className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-slate-900 transition"
+        <a
+          href="#/blog"
+          className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-slate-900 transition cursor-pointer"
         >
           <ArrowLeft className="h-4 w-4" /> Back to Journal Catalog
-        </button>
+        </a>
       )}
 
       {/* Main Layout */}
@@ -70,14 +69,14 @@ export default function BlogView() {
 
           <div className="aspect-[2/1] w-full overflow-hidden rounded-lg border border-slate-100 bg-slate-50">
             <img
-              src={selectedPost.image}
-              alt={selectedPost.title}
-              referrerPolicy="no-referrer"
-              className="w-full h-full object-cover"
+               src={selectedPost.image}
+               alt={selectedPost.title}
+               referrerPolicy="no-referrer"
+               className="w-full h-full object-cover"
             />
           </div>
 
-          {/* Render Markdown Content gracefully inside standard styled block */}
+          {/* Render Content gracefully inside standard styled block */}
           <div className="prose prose-sm prose-slate max-w-none text-slate-700 leading-relaxed text-xs sm:text-sm space-y-4">
             {selectedPost.content.split("\n\n").map((paragraph, index) => {
               if (paragraph.startsWith("###")) {
@@ -135,10 +134,10 @@ export default function BlogView() {
         /* Blog Archives Grid */
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {siteConfig.blog.map((post) => (
-            <div
+            <a
               key={post.id}
-              onClick={() => handlePostClick(post)}
-              className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between hover:border-teal-500 hover:shadow-md transition-all duration-300 cursor-pointer"
+              href={`#/blog/${post.slug || post.id}`}
+              className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between hover:border-teal-500 hover:shadow-md transition-all duration-300 cursor-pointer group"
             >
               {/* Cover Photo */}
               <div className="aspect-[1.8/1] overflow-hidden border-b border-slate-100 bg-slate-50">
@@ -146,7 +145,7 @@ export default function BlogView() {
                   src={post.image}
                   alt={post.title}
                   referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
 
@@ -159,7 +158,7 @@ export default function BlogView() {
                     <span>•</span>
                     <span>{post.readTime}</span>
                   </div>
-                  <h2 className="text-sm font-bold text-slate-950 font-sans line-clamp-2 leading-snug hover:text-teal-600 transition-colors">
+                  <h2 className="text-sm font-bold text-slate-950 font-sans line-clamp-2 leading-snug group-hover:text-teal-600 transition-colors">
                     {post.title}
                   </h2>
                   <p className="text-xs text-slate-500 leading-relaxed line-clamp-3">
@@ -167,12 +166,12 @@ export default function BlogView() {
                   </p>
                 </div>
 
-                <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-teal-600 group">
+                <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-teal-600">
                   <span>Read Scientific Analysis</span>
                   <ChevronRight className="h-4 w-4 transform group-hover:translate-x-0.5 transition-transform" />
                 </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       )}

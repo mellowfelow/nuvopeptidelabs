@@ -63,19 +63,19 @@ export default function HomeView({ setActivePage, setSelectedCategory, onAddToCa
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
-              <button
-                onClick={() => handleProductClick("shop")}
+              <a
+                href="#/shop"
                 className="bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold py-3.5 px-8 rounded-lg transition shadow-md hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>Shop Our Peptides</span>
                 <ArrowRight className="h-4 w-4" />
-              </button>
-              <button
-                onClick={() => handleProductClick("wholesale")}
+              </a>
+              <a
+                href="#/wholesale"
                 className="bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white text-xs font-bold py-3.5 px-8 rounded-lg border border-slate-700 transition flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>Wholesale Peptides</span>
-              </button>
+              </a>
             </div>
           </div>
 
@@ -170,9 +170,9 @@ export default function HomeView({ setActivePage, setSelectedCategory, onAddToCa
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div 
-            onClick={() => handleCategoryClick("Weight Loss Peptides")}
-            className="group cursor-pointer bg-white p-6 rounded-xl border border-slate-200 hover:border-teal-500 hover:shadow-md transition-all duration-300 relative overflow-hidden"
+          <a 
+            href={`#/shop?category=${encodeURIComponent("Weight Loss Peptides")}`}
+            className="group bg-white p-6 rounded-xl border border-slate-200 hover:border-teal-500 hover:shadow-md transition-all duration-300 relative overflow-hidden"
           >
             <div className="absolute right-0 bottom-0 h-16 w-16 bg-slate-50 rounded-tl-full flex items-end justify-end p-2 group-hover:bg-teal-50 transition-colors">
               <ChevronRight className="h-4 w-4 text-slate-400 group-hover:text-teal-600" />
@@ -182,11 +182,11 @@ export default function HomeView({ setActivePage, setSelectedCategory, onAddToCa
             <p className="text-xs text-slate-500 leading-relaxed max-w-[200px]">
               Including Retatrutide, Tirzepatide, and other premium options.
             </p>
-          </div>
+          </a>
 
-          <div 
-            onClick={() => handleCategoryClick("Recovery Peptides")}
-            className="group cursor-pointer bg-white p-6 rounded-xl border border-slate-200 hover:border-teal-500 hover:shadow-md transition-all duration-300 relative overflow-hidden"
+          <a 
+            href={`#/shop?category=${encodeURIComponent("Recovery Peptides")}`}
+            className="group bg-white p-6 rounded-xl border border-slate-200 hover:border-teal-500 hover:shadow-md transition-all duration-300 relative overflow-hidden"
           >
             <div className="absolute right-0 bottom-0 h-16 w-16 bg-slate-50 rounded-tl-full flex items-end justify-end p-2 group-hover:bg-teal-50 transition-colors">
               <ChevronRight className="h-4 w-4 text-slate-400 group-hover:text-teal-600" />
@@ -196,11 +196,11 @@ export default function HomeView({ setActivePage, setSelectedCategory, onAddToCa
             <p className="text-xs text-slate-500 leading-relaxed max-w-[200px]">
               Compounds focused on recovery and tissue repair like BPC-157.
             </p>
-          </div>
+          </a>
 
-          <div 
-            onClick={() => handleCategoryClick("Injectable Blends & Combinations")}
-            className="group cursor-pointer bg-white p-6 rounded-xl border border-slate-200 hover:border-teal-500 hover:shadow-md transition-all duration-300 relative overflow-hidden"
+          <a 
+            href={`#/shop?category=${encodeURIComponent("Injectable Blends & Combinations")}`}
+            className="group bg-white p-6 rounded-xl border border-slate-200 hover:border-teal-500 hover:shadow-md transition-all duration-300 relative overflow-hidden"
           >
             <div className="absolute right-0 bottom-0 h-16 w-16 bg-slate-50 rounded-tl-full flex items-end justify-end p-2 group-hover:bg-teal-50 transition-colors">
               <ChevronRight className="h-4 w-4 text-slate-400 group-hover:text-teal-600" />
@@ -210,17 +210,17 @@ export default function HomeView({ setActivePage, setSelectedCategory, onAddToCa
             <p className="text-xs text-slate-500 leading-relaxed max-w-[200px]">
               Synergistic peptide complexes designed for combined pathways.
             </p>
-          </div>
+          </a>
         </div>
 
         <div className="text-center pt-2">
-          <button
-            onClick={() => handleProductClick("shop")}
+          <a
+            href="#/shop"
             className="inline-flex items-center gap-1.5 text-xs font-bold text-teal-600 hover:text-teal-700 hover:underline cursor-pointer"
           >
             <span>View all peptide categories</span>
             <ArrowRight className="h-4 w-4" />
-          </button>
+          </a>
         </div>
       </section>
 
@@ -235,45 +235,52 @@ export default function HomeView({ setActivePage, setSelectedCategory, onAddToCa
               Our most popular premium tested peptides.
             </p>
           </div>
-          <button
-            onClick={() => handleProductClick("shop")}
+          <a
+            href="#/shop"
             className="text-xs font-bold text-teal-600 hover:text-teal-700 inline-flex items-center gap-1 cursor-pointer"
           >
             Browse Full Catalog <ChevronRight className="h-4 w-4" />
-          </button>
+          </a>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
           {featuredProducts.map((product) => (
             <div 
               key={product.id}
-              className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between"
+              className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between hover:shadow-md transition-all duration-300"
             >
               {/* Product Photo Container conforming to design standard: white background, aspect-ratio:4/3, contain */}
-              <div className="bg-[#fff] relative flex items-center justify-center p-4 border-b border-slate-100" style={{ aspectRatio: "4/3" }}>
-                <img 
-                  src={product.image} 
-                  alt={product.name}
-                  referrerPolicy="no-referrer"
-                  className="w-full h-full object-contain mix-blend-multiply"
-                />
-                <span className="absolute top-3 left-3 bg-teal-600 text-white text-[9px] font-bold font-mono py-1 px-2 rounded uppercase tracking-wider">
-                  {product.badge}
-                </span>
-                <span className="absolute bottom-3 right-3 bg-slate-900/80 backdrop-blur-sm text-slate-300 text-[9px] font-mono py-0.5 px-2 rounded">
-                  {product.purity}
-                </span>
-              </div>
+              <a href={`#/product/${product.id}`} className="block group">
+                <div className="bg-[#fff] relative flex items-center justify-center p-4 border-b border-slate-100" style={{ aspectRatio: "4/3" }}>
+                  <img 
+                    src={product.image} 
+                    alt={product.name}
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-contain mix-blend-multiply group-hover:scale-102 transition-transform duration-300"
+                  />
+                  <span className="absolute top-3 left-3 bg-teal-600 text-white text-[9px] font-bold font-mono py-1 px-2 rounded uppercase tracking-wider">
+                    {product.badge}
+                  </span>
+                  <span className="absolute bottom-3 right-3 bg-slate-900/80 backdrop-blur-sm text-slate-300 text-[9px] font-mono py-0.5 px-2 rounded">
+                    {product.purity}
+                  </span>
+                </div>
+              </a>
 
               {/* Product Info */}
               <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
                 <div className="space-y-1">
-                  <span className="block text-[10px] font-mono text-teal-600 uppercase tracking-widest">
+                  <a
+                    href={`#/shop?category=${encodeURIComponent(product.category)}`}
+                    className="block text-[10px] font-mono text-teal-600 hover:underline uppercase tracking-widest font-semibold"
+                  >
                     {product.category}
-                  </span>
-                  <h3 className="text-sm font-bold text-slate-950 font-sans line-clamp-1">
-                    {product.name}
-                  </h3>
+                  </a>
+                  <a href={`#/product/${product.id}`} className="block hover:text-teal-600 transition-colors">
+                    <h3 className="text-sm font-bold text-slate-950 font-sans line-clamp-1">
+                      {product.name}
+                    </h3>
+                  </a>
                   <p className="text-xs text-slate-500 leading-relaxed line-clamp-2">
                     {product.description}
                   </p>
@@ -321,12 +328,12 @@ export default function HomeView({ setActivePage, setSelectedCategory, onAddToCa
             </p>
 
             <div className="pt-2">
-              <button
-                onClick={() => handleProductClick("about")}
-                className="text-xs font-bold text-teal-600 hover:text-teal-700 hover:underline flex items-center gap-1.5 cursor-pointer"
+              <a
+                href="#/about"
+                className="text-xs font-bold text-teal-600 hover:text-teal-700 hover:underline inline-flex items-center gap-1.5 cursor-pointer"
               >
                 <span>About Our Team</span> <ChevronRight className="h-4 w-4" />
-              </button>
+              </a>
             </div>
           </div>
 

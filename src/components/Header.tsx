@@ -45,9 +45,9 @@ export default function Header({ activePage, setActivePage, cart, setIsCartOpen 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Brand Logo & Name */}
-          <div 
-            onClick={() => handleNavClick("home")}
-            className="flex cursor-pointer items-center gap-2 group"
+          <a 
+            href="#/"
+            className="flex items-center gap-2 group cursor-pointer"
           >
             <div className="relative flex h-10 w-10 items-center justify-center rounded-lg bg-teal-600 text-white shadow-sm transition-transform group-hover:scale-105">
               <Beaker className="h-5 w-5" />
@@ -61,14 +61,14 @@ export default function Header({ activePage, setActivePage, cart, setIsCartOpen 
                 Manchester, UK
               </span>
             </div>
-          </div>
+          </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-6">
             {navigationItems.map((item) => (
-              <button
+              <a
                 key={item.page}
-                onClick={() => handleNavClick(item.page)}
+                href={item.page === "home" ? "#/" : `#/${item.page}`}
                 className={`font-sans text-sm font-medium transition-colors ${
                   activePage === item.page
                     ? "text-teal-600 border-b-2 border-teal-600 py-1"
@@ -76,7 +76,7 @@ export default function Header({ activePage, setActivePage, cart, setIsCartOpen 
                 }`}
               >
                 {item.label}
-              </button>
+              </a>
             ))}
           </nav>
 
@@ -128,9 +128,10 @@ export default function Header({ activePage, setActivePage, cart, setIsCartOpen 
       {isMobileMenuOpen && (
         <div className="lg:hidden border-t border-slate-150 bg-white px-4 py-4 space-y-2 shadow-inner">
           {navigationItems.map((item) => (
-            <button
+            <a
               key={item.page}
-              onClick={() => handleNavClick(item.page)}
+              href={item.page === "home" ? "#/" : `#/${item.page}`}
+              onClick={() => setIsMobileMenuOpen(false)}
               className={`block w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-all ${
                 activePage === item.page
                   ? "bg-teal-50 text-teal-600 font-semibold"
@@ -138,27 +139,23 @@ export default function Header({ activePage, setActivePage, cart, setIsCartOpen 
               }`}
             >
               {item.label}
-            </button>
+            </a>
           ))}
           <div className="border-t border-slate-100 pt-3 mt-3 space-y-2">
-            <button
-              onClick={() => {
-                handleNavClick("faq");
-                setIsMobileMenuOpen(false);
-              }}
+            <a
+              href="#/faq"
+              onClick={() => setIsMobileMenuOpen(false)}
               className="block w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-500 hover:text-slate-800"
             >
               FAQ & Support
-            </button>
-            <button
-              onClick={() => {
-                handleNavClick("shipping");
-                setIsMobileMenuOpen(false);
-              }}
+            </a>
+            <a
+              href="#/shipping"
+              onClick={() => setIsMobileMenuOpen(false)}
               className="block w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-500 hover:text-slate-800"
             >
               Shipping & Delivery
-            </button>
+            </a>
           </div>
         </div>
       )}

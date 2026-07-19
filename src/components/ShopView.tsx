@@ -110,8 +110,8 @@ export default function ShopView({
             </div>
             
             <div className="flex flex-col gap-1 max-h-[360px] overflow-y-auto pr-2 space-y-0.5">
-              <button
-                onClick={() => handleCategorySelect("All Categories")}
+              <a
+                href="#/shop"
                 className={`text-left px-2.5 py-1.5 rounded text-xs transition-colors ${
                   !selectedCategory || selectedCategory === "All Categories"
                     ? "bg-teal-50 text-teal-700 font-semibold border-l-2 border-teal-600"
@@ -119,14 +119,14 @@ export default function ShopView({
                 }`}
               >
                 All Categories ({siteConfig.products.length})
-              </button>
+              </a>
               
               {siteConfig.categories.map((cat) => {
                 const count = siteConfig.products.filter(p => p.category === cat).length;
                 return (
-                  <button
+                  <a
                     key={cat}
-                    onClick={() => handleCategorySelect(cat)}
+                    href={`#/shop?category=${encodeURIComponent(cat)}`}
                     className={`text-left px-2.5 py-1.5 rounded text-xs transition-colors flex justify-between items-center ${
                       selectedCategory === cat
                         ? "bg-teal-50 text-teal-700 font-semibold border-l-2 border-teal-600"
@@ -137,7 +137,7 @@ export default function ShopView({
                     <span className="text-[10px] bg-slate-100 text-slate-500 px-1.5 py-0.5 rounded font-mono">
                       {count}
                     </span>
-                  </button>
+                  </a>
                 );
               })}
             </div>
@@ -179,29 +179,36 @@ export default function ShopView({
                   key={product.id}
                   className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between hover:shadow-md transition-all duration-300"
                 >
-                    {/* Product Image Container: Contain, White BG, 4:3 */}
+                  {/* Product Image Container: Contain, White BG, 4:3, wraps in Link */}
+                  <a href={`#/product/${product.id}`} className="block group">
                     <div className="bg-[#fff] relative flex items-center justify-center p-4 border-b border-slate-100" style={{ aspectRatio: "4/3" }}>
                       <img 
                         src={product.image} 
                         alt={product.name}
                         referrerPolicy="no-referrer"
-                        className="w-full h-full object-contain mix-blend-multiply"
+                        className="w-full h-full object-contain mix-blend-multiply group-hover:scale-102 transition-transform duration-300"
                       />
                       <span className="absolute top-3 left-3 bg-teal-600 text-white text-[9px] font-bold font-mono py-1 px-2 rounded uppercase tracking-wider">
                         {product.badge}
                       </span>
                     </div>
+                  </a>
 
                   {/* Product Info */}
                   <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
                     <div className="space-y-1">
-                      <span className="block text-[10px] font-mono text-teal-600 uppercase tracking-widest font-semibold">
+                      <a 
+                        href={`#/shop?category=${encodeURIComponent(product.category)}`}
+                        className="block text-[10px] font-mono text-teal-600 hover:underline uppercase tracking-widest font-semibold"
+                      >
                         {product.category}
-                      </span>
-                      <h3 className="text-sm font-bold text-slate-950 font-sans">
-                        {product.name}
-                      </h3>
-                      <p className="text-xs text-slate-500 leading-relaxed">
+                      </a>
+                      <a href={`#/product/${product.id}`} className="block hover:text-teal-600 transition-colors">
+                        <h3 className="text-sm font-bold text-slate-950 font-sans line-clamp-1">
+                          {product.name}
+                        </h3>
+                      </a>
+                      <p className="text-xs text-slate-500 leading-relaxed line-clamp-2">
                         {product.longDescription}
                       </p>
 

@@ -21,9 +21,9 @@ export default function Footer({ setActivePage }: FooterProps) {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           {/* Logo, Description & Essential Entity Sentence */}
           <div className="space-y-4 md:col-span-1">
-            <div 
-              onClick={() => handleNavClick("home")}
-              className="flex cursor-pointer items-center gap-2"
+            <a 
+              href="#/"
+              className="flex items-center gap-2 cursor-pointer"
             >
               <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-teal-600 text-white shadow-sm">
                 <Beaker className="h-5 w-5" />
@@ -31,7 +31,7 @@ export default function Footer({ setActivePage }: FooterProps) {
               <span className="font-sans text-md font-bold tracking-tight text-white">
                 Nuvo Peptide Labs
               </span>
-            </div>
+            </a>
             
             <p className="text-xs text-slate-400 leading-relaxed font-sans">
               {siteConfig.business.brandEntitySentence}
@@ -50,29 +50,29 @@ export default function Footer({ setActivePage }: FooterProps) {
             </h3>
             <ul className="space-y-2 text-xs">
               <li>
-                <button onClick={() => handleNavClick("shop")} className="hover:text-teal-400 transition-colors">
+                <a href="#/shop" className="hover:text-teal-400 transition-colors">
                   Product Catalog
-                </button>
+                </a>
               </li>
               <li>
-                <button onClick={() => handleNavClick("blog")} className="hover:text-teal-400 transition-colors">
+                <a href="#/blog" className="hover:text-teal-400 transition-colors">
                   Peptide Quality & Support Blog
-                </button>
+                </a>
               </li>
               <li>
-                <button onClick={() => handleNavClick("about")} className="hover:text-teal-400 transition-colors">
+                <a href="#/about" className="hover:text-teal-400 transition-colors">
                   About Our Team
-                </button>
+                </a>
               </li>
               <li>
-                <button onClick={() => handleNavClick("wholesale")} className="hover:text-teal-400 transition-colors">
+                <a href="#/wholesale" className="hover:text-teal-400 transition-colors">
                   Wholesale Peptides
-                </button>
+                </a>
               </li>
               <li>
-                <button onClick={() => handleNavClick("faq")} className="hover:text-teal-400 transition-colors">
+                <a href="#/faq" className="hover:text-teal-400 transition-colors">
                   General Support FAQ
-                </button>
+                </a>
               </li>
             </ul>
           </div>
@@ -84,24 +84,24 @@ export default function Footer({ setActivePage }: FooterProps) {
             </h3>
             <ul className="space-y-2 text-xs">
               <li>
-                <button onClick={() => handleNavClick("shipping")} className="hover:text-teal-400 transition-colors">
+                <a href="#/shipping" className="hover:text-teal-400 transition-colors">
                   Discreet Shipping Policy
-                </button>
+                </a>
               </li>
               <li>
-                <button onClick={() => handleNavClick("refund")} className="hover:text-teal-400 transition-colors">
+                <a href="#/refund" className="hover:text-teal-400 transition-colors">
                   Refund Policy
-                </button>
+                </a>
               </li>
               <li>
-                <button onClick={() => handleNavClick("privacy")} className="hover:text-teal-400 transition-colors">
+                <a href="#/privacy" className="hover:text-teal-400 transition-colors">
                   Privacy Policy
-                </button>
+                </a>
               </li>
               <li>
-                <button onClick={() => handleNavClick("terms")} className="hover:text-teal-400 transition-colors">
+                <a href="#/terms" className="hover:text-teal-400 transition-colors">
                   Terms of Use
-                </button>
+                </a>
               </li>
             </ul>
           </div>
